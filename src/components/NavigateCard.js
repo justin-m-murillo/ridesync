@@ -8,9 +8,8 @@ import { useDispatch } from 'react-redux';
 import { setDestination } from '../../slices/navSlice';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import FAIcon from 'react-native-vector-icons/FontAwesome';
-import IOIcon from 'react-native-vector-icons/Ionicons';
 import NavFavorites from './NavFavorites';
+import usePhaseOfDay from '../hooks/usePhaseOfDay'
 
 const NavigateCard = () => {
   const dispatch = useDispatch();
@@ -21,6 +20,8 @@ const NavigateCard = () => {
     inputRef.current?.focus();
   }
 
+  const greeting = usePhaseOfDay();
+
   return (
     <View style={tw`bg-white flex-1`}>
       <View style={tw`flex-row p-5 justify-center`}>
@@ -30,7 +31,7 @@ const NavigateCard = () => {
           </TouchableOpacity>
         </View>
         <View style={tw`flex-2`}>
-          <Text style={tw`text-center text-base sm:text-xl text-black`}>Good morning, Justin</Text>
+          <Text style={tw`text-center text-base sm:text-xl text-black`}>{greeting}Justin</Text>
         </View>
         <View style={tw`flex-1`} />{/* Space filler */}
       </View>
@@ -61,7 +62,7 @@ const NavigateCard = () => {
         <NavFavorites handleFavoritesSubmit={handleFavoritesSubmit} />
       </View>
 
-      <View 
+      {/* <View 
         style={tw`flex-row mx-4 mt-auto mb-4  bg-white justify-evenly py-2 border-t border-gray-200`}
       >
         <TouchableOpacity
@@ -81,7 +82,7 @@ const NavigateCard = () => {
             </View>
             <Text style={tw`text-center text-black`}>Eats</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   )
 }

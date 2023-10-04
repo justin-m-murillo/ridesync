@@ -7,24 +7,31 @@ import { ChevronLeftIcon } from 'react-native-heroicons/solid'
 import { useSelector } from 'react-redux'
 import { selectTravelTimeInformation } from '../../slices/navSlice'
 
+import eco from '../../assets/rides/png/eco.png';
+const ECO = Image.resolveAssetSource(eco).uri;
+import pls from '../../assets/rides/png/plus.png';
+const PLS = Image.resolveAssetSource(pls).uri;
+import lux from '../../assets/rides/png/lux.png';
+const LUX = Image.resolveAssetSource(lux).uri;
+
 const data = [
   {
-    id: 'Uber-X-123',
-    title: 'UberX',
+    id: 'RIDE-ECO-123',
+    title: 'ECO',
     multiplier: 1,
-    image: 'https://links.papareact.com/3pn',
+    image: ECO,
   },
   {
-    id: 'Uber-XL-456',
-    title: 'Uber XL',
+    id: 'RIDE-PLUS-456',
+    title: 'PLUS',
     multiplier: 1.2,
-    image: 'https://links.papareact.com/5w8',
+    image: PLS,
   },
   {
-    id: 'Uber-LUX-789',
-    title: 'Uber LUX',
+    id: 'RIDE-LUX-789',
+    title: 'LUX',
     multiplier: 1.75,
-    image: 'https://links.papareact.com/7pf',
+    image: LUX,
   },
 ];
 
@@ -60,7 +67,7 @@ const RideOptionsCard = () => {
               style={tw`flex-row justify-between items-center px-4 sm:px-10 ${id === selected?.id ? 'bg-gray-200' : null}`}
               onPress={() => setSelected(item)}
             >
-              <View style={tw`flex-1`}>
+              <View style={tw`flex-1 mr-1`}>
                 <Image 
                   style={{
                     width: 100,
